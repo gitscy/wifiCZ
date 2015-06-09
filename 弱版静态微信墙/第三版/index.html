@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="style/index.css" rel="stylesheet" />
+    <script src="script/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var iTop = 0;
+            var iStep = 543;
+            var iSpeed = 10;//移动速度 秒
+            var time1 = null;
+
+            $(".wall").html($(".wall").html() + $(".wall").html());
+
+            time1 = setInterval(go, iSpeed * 1000);
+
+            $(".wallCover").mouseenter(function () {
+                clearInterval(time1);
+            })
+
+            $(".wallCover").mouseleave(function () {
+                time1 = setInterval(go, iSpeed * 1000);
+            })
+
+            function go() {
+                if (iTop == -2715) {
+                    iTop = 0;
+                    $(".wall").css("top", 0)
+                    document.title = iTop;
+                }
+
+                iTop = iTop - iStep;
+                $(".wall").animate({
+                    "top": iTop,
+                    "opacity": 0.7,
+                }, 700, function () {
+                    $(".wall").animate({
+                        "opacity": 1,
+                    });
+                });
+                document.title = iTop;
+            }
+
+        })
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="wallCover">
+
+            <div class="wall">
+
+                <div class="tip">
+                    <img src="images/ex.png" />
+                    <div class="in">
+                        <h1>一语妈妈</h1>
+                        <span>2014-12-05 12:15:13</span>
+                        <p>
+                            我家儿子经常无端端的打别人的孩子，不会用语言来沟通，天天被
+老师请去谈话，请教下这孩子改怎么教育啊？请教下这孩子改怎么教育啊？1
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tip">
+                    <img src="images/ex.png" />
+                    <div class="in">
+                        <h1>一语妈妈</h1>
+                        <span>2014-12-05 12:15:13</span>
+                        <p>
+                            我家儿子经常无端端的打别人的孩子，不会用语言来沟通，天天被
+老师请去谈话，请教下这孩子改怎么教育啊？请教下这孩子改怎么教育啊？1
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="tip">
+                    <img src="images/ex.png" />
+                    <div class="in">
+                        <h1>一语妈妈</h1>
+                        <span>2014-12-05 12:15:13</span>
+                        <p>
+                            我家儿子经常无端端的打别人的孩子，不会用语言来沟通，天天被
+老师请去谈话，请教下这孩子改怎么教育啊？请教下这孩子改怎么教育啊？1
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="tip">
+                    <img src="images/ex.png" />
+                    <div class="in">
+                        <h1>一语妈妈</h1>
+                        <span>2014-12-05 12:15:13</span>
+                        <p>
+                            我家儿子经常无端端的打别人的孩子，不会用语言来沟通，天天被
+老师请去谈话，请教下这孩子改怎么教育啊？请教下这孩子改怎么教育啊？1
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tip">
+                    <img src="images/ex.png" />
+                    <div class="in">
+                        <h1>一语妈妈</h1>
+                        <span>2014-12-05 12:15:13</span>
+                        <p>
+                            我家儿子经常无端端的打别人的孩子，不会用语言来沟通，天天被
+老师请去谈话，请教下这孩子改怎么教育啊？请教下这孩子改怎么教育啊？1
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="tip">
+                    <img src="images/ex.png" />
+                    <div class="in">
+                        <h1>一语妈妈</h1>
+                        <span>2014-12-05 12:15:13</span>
+                        <p>
+                            我家儿子经常无端端的打别人的孩子，不会用语言来沟通，天天被
+老师请去谈话，请教下这孩子改怎么教育啊？请教下这孩子改怎么教育啊？1
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tip">
+                    <img src="images/ex.png" />
+                    <div class="in">
+                        <h1>一语妈妈</h1>
+                        <span>2014-12-05 12:15:13</span>
+                        <p>
+                            我家儿子经常无端端的打别人的孩子，不会用语言来沟通，天天被
+老师请去谈话，请教下这孩子改怎么教育啊？请教下这孩子改怎么教育啊？1
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="tip">
+                    <img src="images/ex.png" />
+                    <div class="in">
+                        <h1>一语妈妈</h1>
+                        <span>2014-12-05 12:15:13</span>
+                        <p>
+                            我家儿子经常无端端的打别人的孩子，不会用语言来沟通，天天被
+老师请去谈话，请教下这孩子改怎么教育啊？请教下这孩子改怎么教育啊？1
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="tip">
+                    <img src="images/ex.png" />
+                    <div class="in">
+                        <h1>一语妈妈</h1>
+                        <span>2014-12-05 12:15:13</span>
+                        <p>
+                            我家儿子经常无端端的打别人的孩子，不会用语言来沟通，天天被
+老师请去谈话，请教下这孩子改怎么教育啊？请教下这孩子改怎么教育啊？1
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tip">
+                    <img src="images/ex.png" />
+                    <div class="in">
+                        <h1>一语妈妈</h1>
+                        <span>2014-12-05 12:15:13</span>
+                        <p>
+                            我家儿子经常无端端的打别人的孩子，不会用语言来沟通，天天被
+老师请去谈话，请教下这孩子改怎么教育啊？请教下这孩子改怎么教育啊？1
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="tip">
+                    <img src="images/ex.png" />
+                    <div class="in">
+                        <h1>一语妈妈</h1>
+                        <span>2014-12-05 12:15:13</span>
+                        <p>
+                            我家儿子经常无端端的打别人的孩子，不会用语言来沟通，天天被
+老师请去谈话，请教下这孩子改怎么教育啊？请教下这孩子改怎么教育啊？1
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tip">
+                    <img src="images/ex.png" />
+                    <div class="in">
+                        <h1>一语妈妈</h1>
+                        <span>2014-12-05 12:15:13</span>
+                        <p>
+                            我家儿子经常无端端的打别人的孩子，不会用语言来沟通，天天被
+老师请去谈话，请教下这孩子改怎么教育啊？请教下这孩子改怎么教育啊？1
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="tip">
+                    <img src="images/ex.png" />
+                    <div class="in">
+                        <h1>一语妈妈</h1>
+                        <span>2014-12-05 12:15:13</span>
+                        <p>
+                            我家儿子经常无端端的打别人的孩子，不会用语言来沟通，天天被
+老师请去谈话，请教下这孩子改怎么教育啊？请教下这孩子改怎么教育啊？1
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="tip">
+                    <img src="images/ex.png" />
+                    <div class="in">
+                        <h1>一语妈妈</h1>
+                        <span>2014-12-05 12:15:13</span>
+                        <p>
+                            我家儿子经常无端端的打别人的孩子，不会用语言来沟通，天天被
+老师请去谈话，请教下这孩子改怎么教育啊？请教下这孩子改怎么教育啊？1
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tip">
+                    <img src="images/ex.png" />
+                    <div class="in">
+                        <h1>一语妈妈</h1>
+                        <span>2014-12-05 12:15:13</span>
+                        <p>
+                            我家儿子经常无端端的打别人的孩子，不会用语言来沟通，天天被
+老师请去谈话，请教下这孩子改怎么教育啊？请教下这孩子改怎么教育啊？1
+                        </p>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

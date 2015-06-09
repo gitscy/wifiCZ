@@ -1,0 +1,546 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>无标题文档</title>
+    <link rel="stylesheet" type="text/css" href="css/css.css" />
+    <script src="http://www.zhong5.cn/library/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <style>
+        .animated { -webkit-animation-duration: 1s; animation-duration: 1s; -webkit-animation-fill-mode: both; animation-fill-mode: both; }
+
+            .animated.infinite { -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite; }
+
+            .animated.hinge { -webkit-animation-duration: 2s; animation-duration: 2s; }
+
+        @-webkit-keyframes rubberBand {
+            0% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+
+            30% { -webkit-transform: scale3d(1.25, 0.75, 1); transform: scale3d(1.25, 0.75, 1); }
+
+            40% { -webkit-transform: scale3d(0.75, 1.25, 1); transform: scale3d(0.75, 1.25, 1); }
+
+            50% { -webkit-transform: scale3d(1.15, 0.85, 1); transform: scale3d(1.15, 0.85, 1); }
+
+            65% { -webkit-transform: scale3d(.95, 1.05, 1); transform: scale3d(.95, 1.05, 1); }
+
+            75% { -webkit-transform: scale3d(1.05, .95, 1); transform: scale3d(1.05, .95, 1); }
+
+            100% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+        }
+
+        @keyframes rubberBand {
+            0% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+
+            30% { -webkit-transform: scale3d(1.25, 0.75, 1); transform: scale3d(1.25, 0.75, 1); }
+
+            40% { -webkit-transform: scale3d(0.75, 1.25, 1); transform: scale3d(0.75, 1.25, 1); }
+
+            50% { -webkit-transform: scale3d(1.15, 0.85, 1); transform: scale3d(1.15, 0.85, 1); }
+
+            65% { -webkit-transform: scale3d(.95, 1.05, 1); transform: scale3d(.95, 1.05, 1); }
+
+            75% { -webkit-transform: scale3d(1.05, .95, 1); transform: scale3d(1.05, .95, 1); }
+
+            100% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+        }
+
+        .rubberBand { -webkit-animation-name: rubberBand; animation-name: rubberBand; }
+
+
+        .caili { color: #000; }
+        .cainame { color: #000; }
+        .pj { color: #000; }
+        .gl{ color:#f37413}
+    </style>
+    <!--<script src="zepto1.1.6.js"></script>-->
+    <script>
+        $(function () {
+            var group = 0;
+
+            var rightNowList = 1;
+
+            updateTheList(1);
+
+            makeClassIndex();
+
+            //大分组的触摸事件
+            $(".changeGroup").bind("touchend", function () {
+                group = $(this).index();
+                makeClassIndex();
+                updateTheList(group * 5 + 1);
+                $(".changeGroup").removeClass("w501 w502").addClass("w502");
+                $(this).addClass("w501").removeClass("w502");
+            })
+
+            //小分组的触摸事件
+            $(".w20").bind("touchend", function ()
+            {
+                $(".w20").removeClass("gl");
+                $(this).addClass("gl");
+                updateTheList($(this).attr("data-class"));
+                $(this).find("img").addClass("animated rubberBand");
+                $(this).find("img").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+                    $(this).removeClass("animated rubberBand");
+                });
+            });
+
+            //绑定5个小分组的组别
+            function makeClassIndex() {
+                for (var i = 0; i < 5; i++) {
+                    $("#classBox div").eq(i).attr("data-class", 1 + i + group * 5);
+                }
+            }
+
+            //更新内容区列表
+            function updateTheList(listIndex) {
+                $(".caili").hide();
+                $("[data-in='" + listIndex + "']").show();
+            }
+
+        });
+
+    </script>
+</head>
+
+<body>
+    <div> <img src="images/top.jpg" width="100%" /></div>
+    <div class="w90 clearfix">
+        <div class="w501 changeGroup"><div>平价菜</div></div>
+        <div class="w502 changeGroup"><div>农贸市场</div></div>
+        <div class="w502 changeGroup"><div>凌家塘</div></div>
+        <div class="clear"></div>
+        <div class="wudalei clearfix" id="classBox">
+            <div class="w20 gl" data-class=""><img src="images/c1.jpg" width="90%" /><br />蔬菜</div>
+            <div class="w20" data-class=""><img src="images/c2.jpg" width="90%" /><br />肉禽</div>
+            <div class="w20" data-class=""><img src="images/c3.jpg" width="90%" /><br />水产</div>
+            <div class="w20" data-class=""><img src="images/c4.jpg" width="90%" /><br />蛋类</div>
+            <div class="w20" data-class=""><img src="images/c5.jpg" width="90%" /><br />豆制品</div>
+        </div>
+
+        <div class="caili clearfix" data-in="1">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">11花，大棚）11111</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="2">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">22，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="3">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">33，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="4">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">44花，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="5">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">55花，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+
+        <div class="caili clearfix" data-in="5">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">55花，555）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+
+        <div class="caili clearfix" data-in="6">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">66带花，大棚）66666</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="7">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">77带花，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="8">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">88（带花，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="9">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">99花，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="10">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">10花，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="11">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">11花，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="12">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">12花，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="13">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">13花，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="14">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">14带花，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="15">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">15花，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="1">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">1花，大棚）111111</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="12">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">12带花，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="3">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">3，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="4">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">4带花，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="5">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">5花，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="6">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">6花，大棚）666666</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="7">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">7，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="8">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">8，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="9">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">9花，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="6">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">6，666大棚）66</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="6">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">黄瓜66（带6花，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="6">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">黄瓜（666，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="6">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">黄瓜（6，66大棚6）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="6">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">黄瓜6，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="11">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">黄11花，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="11">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">黄11大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="11">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">黄11花，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="11">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">黄瓜11，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="11">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">黄瓜11，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="11">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">黄瓜11，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="11">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">黄瓜11大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="11">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">黄瓜（带花，11111大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="11">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">111（带花，大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="6">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">黄瓜6大棚）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥70.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="6">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">南瓜6，小）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥40.0</span></div>
+                </div>
+            </a>
+        </div>
+        <div class="caili clearfix" data-in="11">
+            <a href="http://www.zhong5.cn">
+                <div class="clear"></div>
+                <div class="cainame ">南瓜11小）</div>
+                <div class="w35">
+                    <div class="cainame_m mt1"><span class="pj">平价店均价</span><span class="qj2">￥40.0</span></div>
+                    <div class="cainame_m "><span class="pj">菜场均价</span><span class="qj3">￥40.0</span></div>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

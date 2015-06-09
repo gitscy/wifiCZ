@@ -1,0 +1,70 @@
+﻿{code}
+    $len = count($tuji_pics);
+    $tuji =array();
+    $pubdate = date(#date, $publish_time);
+            $keys ="";
+           if($keyword){
+                 $keys .="关键字：";
+                $keywords =explode(",", $keyword);
+                foreach ($keywords as $key){
+                    $keys.='<a href="'.$__info['column']['weburl'].'/search/?searchkey='.$key.'">'.$key.'</a>';
+                }
+            }
+{/code}
+
+<section class="wrapper">
+    <div class="article">
+        <header class="hd">
+            <div class="title clearfix">
+                <h1>{$title}</h1>
+                <cite class="info"> <span class="info-seqnum" id="count-gallery-record"><em>0</em>/<span class="gallery-total" id="gallery-count-num">{$len}</span></span>  <span class="info-pubdate">{$pubdate}</span> <span class="info-source">{$source}</span> </cite>
+            </div>
+            <div class="description">{$brief}</div>
+        </header>
+        <section class="bd">
+            <div id="gallery-container">
+                <div class="content">
+                    <ul class="pic-list-h">
+                        {foreach $tuji_pics}
+                        {code}
+                        $dqum=$kk+1;
+                        $number= str_pad($kk+1, 3, "0", STR_PAD_LEFT);
+                        $brief = $tuji_pics_v['brief'];
+                        $timg= web_get_pic_url($tuji_pics_v['pic'],#timgwidth);
+                        $img= web_get_pic_url($tuji_pics_v['pic']);
+                        $small= web_get_pic_url($tuji_pics_v['pic'], #smallwidth, #smallheight);
+                        {/code}
+                        <li><a href="#{$p}={$number}" hidefocus="true"><img src="{$img}" alt="{$brief}" /></a></li>
+                        {/foreach}
+                    </ul>
+                </div>
+                <div class="navigator-arrow arrow-prev"><span title="上一张"><</span></div>
+                <div class="navigator-arrow arrow-next"><span title="下一张">></span></div>
+                <script>active([".navigator-arrow span"])</script>
+            </div>
+            <div id="gallery-desc">
+                <span class="info-seqnum"><em></em>/{$len}</span>
+                <p></p>
+            </div>
+            <div id="album-navigator">
+
+                <div class="thumb-container thumb-list">
+                    <div id="thumb-scroll-pane">
+                        <ul class="pic-list-h">
+                            {foreach $tuji_pics}
+                            {code}
+                            $dqum=$kk+1;
+                            $number= str_pad($kk+1, 3, "0", STR_PAD_LEFT);
+                            $timg= web_get_pic_url($tuji_pics_v['pic'],#timgwidth);
+                            $img= web_get_pic_url($tuji_pics_v['pic']);
+                            $small= web_get_pic_url($tuji_pics_v['pic'], #smallwidth, #smallheight);
+                            {/code}
+                            <li><a href="#{$p}={$number}" hidefocus="true"><img src="{$small}" alt="{$number}" /></a></li>
+                            {/foreach}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>

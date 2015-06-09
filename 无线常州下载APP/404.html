@@ -1,0 +1,65 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-store, must-revalidate" />
+    <meta http-equiv="expires" content="0" />
+    <title>404-无线常州</title>
+    <script type="text/javascript">
+        var phoneWidth = parseInt(window.screen.width);
+        var phoneScale = phoneWidth / 640;
+        var isAndroid = RegExp("Android").test(navigator.userAgent);
+        if (isAndroid) {
+            document.write('<meta name="viewport" content="width=640,  minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+        } else {
+            document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+        }
+    </script>
+    <style>
+        html, body, dl, dt, dd, ul, ol, li, h1, h2, h3, span, h4, h5, h6, form, fieldset, input, lable, textarea, p, blockquote { margin: 0; padding: 0; }
+        body { font-size: 12px; font-family: Verdana, Arial, Helvetica, sans-serif; line-height: 2; }
+        li { list-style: none; }
+        a { text-decoration: none; color: #666; }
+            a:hover { text-decoration: underline; }
+        .clear { clear: both; }
+        .clear10 { clear: both; height: 10px; line-height: 10px; overflow: hidden; margin: 0 auto; }
+        .frame, .frame-tab { background: none; }
+        .clearfix:after { clear: both; height: 0; overflow: hidden; display: block; visibility: hidden; content: ""; }
+        .clearfix { *zoom: 1; }
+        .wt_content { width: 640px; margin: auto; position: relative; }
+        .no1 { position: absolute; width: 640px; left: 0; top: 100px; }
+        .tu1 { width: 360px; height: 373px; margin: auto; background: url(404-1.png); position: relative; }
+        .no2 { position: absolute; width: 640px; text-align: center; left: 0; top: 50%; margin-top: 100px; }
+        .no3 { font: 30px/100px \5fae\8f6f\96c5\9ed1; height: 100px; position: absolute; width: 640px; left: 0; bottom: 0; text-align: center; }
+        #time { font-size: 80px; position: absolute; top: 130px; left: 190px; font-weight: bold; }
+    </style>
+    <script>
+        window.onload = function () {
+            //这里填入下载页面的地址
+            var targetUrl = "down.html";
+            var iNowSecond = 3;
+            var oSpan = document.getElementById("time");
+            oSpan.innerHTML = iNowSecond;
+            function turnOffTheTime() {
+                iNowSecond--;
+                oSpan.innerHTML = iNowSecond;
+                if (iNowSecond==0) {
+                    clearInterval(timeCtrl);
+                    window.location.href = targetUrl;
+                }
+            }
+            var timeCtrl = setInterval(turnOffTheTime, 1000);
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="no1">
+        <div class="tu1"><span id="time">3</span></div>
+    </div>
+    <div class="no2"><img src="404-2.png" width="360" height="194"></div>
+    <div class="no3">常州生活服务云平台</div>
+</body>
+</html>

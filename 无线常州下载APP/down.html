@@ -1,0 +1,119 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-store, must-revalidate" />
+    <meta http-equiv="expires" content="0" />
+    <title>下载无线常州</title>
+    <script type="text/javascript">
+        var phoneWidth = parseInt(window.screen.width);
+        var phoneScale = phoneWidth / 640;
+        var isAndroid = RegExp("Android").test(navigator.userAgent);
+        if (isAndroid) {
+            document.write('<meta name="viewport" content="width=640,  minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+        } else {
+            document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+        }
+    </script>
+    <style>
+        html, body, dl, dt, dd, ul, ol, li, h1, h2, h3, span, h4, h5, h6, form, fieldset, input, lable, textarea, p, blockquote { margin: 0; padding: 0; }
+        body { font-size: 12px; font-family: Verdana, Arial, Helvetica, sans-serif; line-height: 2; }
+        li { list-style: none; }
+        a { text-decoration: none; color: #666; }
+            a:hover { text-decoration: underline; }
+        .clear { clear: both; }
+        .clear10 { clear: both; height: 10px; line-height: 10px; overflow: hidden; margin: 0px auto; }
+        .frame, .frame-tab { background: none; }
+        .clearfix:after { clear: both; height: 0px; overflow: hidden; display: block; visibility: hidden; content: ""; }
+        .clearfix { *zoom: 1; }
+        .wt_content { width: 640px; margin: auto; position: relative; }
+        .no1 { position: absolute; width: 640px; left: 0px; top: 50px; text-align: center; }
+        .no2 { position: absolute; width: 640px; text-align: center; left: 0px; top: 50%; margin-top: -75px; }
+        .no3 { position: absolute; width: 640px; text-align: center; left: 0px; bottom: 80px; }
+        .no4 { font: 30px/100px \5fae\8f6f\96c5\9ed1; height: 100px; position: absolute; width: 640px; left: 0px; bottom: 0px; text-align: center; }
+        #androidAlert, #iOSAlert { width: 100%; height: 100%; background: black; opacity: 0.9; }
+            #androidAlert img, #iOSAlert img { width: 100%; }
+        .hide { display: none; }
+    </style>
+    <script type="text/javascript">
+    </script>
+    <script>
+        window.onload = function () {
+            var targetIOS = "https://itunes.apple.com/cn/app/id583800144?mt=8";
+            var targetAndroid = "http://www.cztv.tv/clientdown/Changzhou_47_3.0.0_1229_1.apk";
+            var downloadBtnIOS = document.getElementById("downloadIOS");
+            var downloadBtnAndorid = document.getElementById("downloadAndroid");
+            var alertIOS = document.getElementById("iOSAlert");
+            var alertAndroid = document.getElementById("androidAlert");
+            downloadBtnIOS.addEventListener("touchend", function () {
+                window.location = targetIOS;
+            }, false);
+            downloadBtnAndorid.addEventListener("touchend", function () {
+                window.location = targetAndroid;
+            }, false);
+            alertIOS.addEventListener("touchend", function () {
+                alertIOS.style.display = "none";
+            }, false);
+            alertAndroid.addEventListener("touchend", function () {
+                alertAndroid.style.display = "none";
+            }, false);
+            var browser = {
+                versions: function () {
+                    var u = navigator.userAgent, app = navigator.appVersion;
+                    return {
+                        trident: u.indexOf('Trident') > -1,
+                        presto: u.indexOf('Presto') > -1,
+                        webKit: u.indexOf('AppleWebKit') > -1,
+                        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,
+                        mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/),
+                        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+                        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+                        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1,
+                        iPad: u.indexOf('iPad') > -1,
+                        webApp: u.indexOf('Safari') == -1
+                    };
+                }(),
+                language: (navigator.browserLanguage || navigator.language).toLowerCase()
+            }
+            setTimeout(function () {
+                if (isWeiXin()) {
+                    if (browser.versions.ios || browser.versions.iPhone || browser.versions.iPad) {
+                        alertIOS.style.display = "block";
+                    }
+                    else if (browser.versions.android) {
+                        alertAndroid.style.display = "block";
+                    }
+                } else {
+                    if (browser.versions.ios || browser.versions.iPhone || browser.versions.iPad) {
+                        window.location = targetIOS;
+                    }
+                    else if (browser.versions.android) {
+                        window.location = targetAndroid;
+                    }
+                }
+            }, 2000);
+            function isWeiXin() {
+                var ua = window.navigator.userAgent.toLowerCase();
+                if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="no1"><img src="down-1.png" width="447" height="280"></div>
+    <div class="no2"><img src="down-2.png" id="downloadIOS" width="347" height="75" style="margin-bottom:10px;"><img src="down-3.png" id="downloadAndroid" width="347" height="75"></div>
+    <div class="no3"><img src="down-4.png" width="344" height="214"></div>
+    <div class="no4">常州生活服务云平台</div>
+    <div id="iOSAlert" class="hide">
+        <img src="download_ios.png" />
+    </div>
+    <div id="androidAlert" class="hide">
+        <img src="download_android.png" />
+    </div>
+</body>
+</html>

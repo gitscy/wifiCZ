@@ -1,0 +1,289 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>无标题文档</title>
+    <link rel="stylesheet" type="text/css" href="css/css.css" />
+    <script src="http://www.zhong5.cn/library/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+    <style>
+        .caili { color: black; }
+    </style>
+    <script>
+        $(function () {
+
+            var touchedIndex = 1;
+            showList(touchedIndex);
+
+
+            $(".areaList a").bind("touchend", function () {
+                touchedIndex = $(this).index() + 1;
+                $(this).siblings().removeClass("dqa daq2").addClass("daq2");
+                $(this).removeClass("dqa daq2").addClass("daq");
+                showList(touchedIndex);
+            })
+
+            //更新内容区列表
+            function showList(listIndex) {
+                $(".item").hide();
+                $(".tl3").hide();
+                $("[data-in='" + listIndex + "']").show();
+                $("[data-price='" + listIndex + "']").show();
+            }
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="w90 clearfix ">
+        <div class="main_bt">黄瓜（带花，大棚）</div>
+    </div>
+    <div class="bm"></div>
+   
+    <div class="w90 clearfix pt2 areaList ">
+        <a href="#" class="daq">钟楼区</a>
+        <a href="#" class="daq2">天宁区</a>
+        <a href="#" class="daq2">市辖区</a>
+        <a href="#" class="daq2">戚墅堰区</a>
+        <a href="#" class="daq2">新北区</a>
+        <a href="#" class="daq2">武进区</a>
+        <a href="#" class="daq2">溧阳市</a>
+        <a href="#" class="daq2">金坛市</a>
+    </div>
+
+
+
+    
+    <div class="w90 clearfix tl3" data-price="1">
+        最高价1，<span>最低价2.58</span>，平均价2.98
+    </div>
+
+    <div class="w90 clearfix tl3" data-price="2">
+        最高价2，<span>最低价2.58</span>，平均价2.98
+    </div>
+
+    <div class="w90 clearfix tl3" data-price="3">
+        最高价3，<span>最低价2.58</span>，平均价2.98
+    </div>
+
+    <div class="w90 clearfix tl3" data-price="4">
+        最高价4，<span>最低价2.58</span>，平均价2.98
+    </div>
+
+    <div class="w90 clearfix tl3" data-price="5">
+        最高价5，<span>最低价2.58</span>，平均价2.98
+    </div>
+
+    <div class="w90 clearfix tl3" data-price="6">
+        最高价6，<span>最低价2.58</span>，平均价2.98
+    </div>
+
+    <div class="w90 clearfix tl3" data-price="7">
+        最高价7，<span>最低价2.58</span>，平均价2.98
+    </div>
+
+    <div class="w90 clearfix tl3" data-price="8">
+        最高价8，<span>最低价2.58</span>，平均价2.98
+    </div>
+
+
+
+
+
+    <div class="bm"></div>
+    <div class="w90 clearfix tl hui">
+        平价店名称
+    </div>
+
+
+    <a href="http://www.zhong5.cn" class="item" data-in="1">
+        <div class="w90 clearfix tgl caili clearfix">
+            常州市公园乐购生活购物有限公司<br />
+            <span>时价</span><div class="ml10">
+                2.38
+            </div>
+        </div>
+    </a>
+
+
+    <a href="http://www.zhong5.cn" class="item" data-in="1">
+        <div class="w90 clearfix tgl caili clearfix">
+            常州市公园乐购生活购物有限公司<br />
+            <span>时价</span><div class="ml10">
+                2.38
+            </div>
+        </div>
+    </a>
+
+    <a href="http://www.zhong5.cn" class="item" data-in="1">
+        <div class="w90 clearfix tgl caili clearfix">
+            常州市公园乐购生活购物有限公司<br />
+            <span>时价</span><div class="ml10">
+                2.38
+            </div>
+        </div>
+    </a>
+
+
+    <a href="http://www.zhong5.cn" class="item" data-in="1">
+        <div class="w90 clearfix tgl caili clearfix">
+            常州市公园乐购生活购物有限公司<br />
+            <span>时价</span><div class="ml10">
+                2.38
+            </div>
+        </div>
+    </a>
+
+    <a href="http://www.zhong5.cn" class="item" data-in="1">
+        <div class="w90 clearfix tgl caili clearfix">
+            常州市公园乐购生活购物有限公司<br />
+            <span>时价</span><div class="ml10">
+                2.38
+            </div>
+        </div>
+    </a>
+
+
+    <a href="http://www.zhong5.cn" class="item" data-in="1">
+        <div class="w90 clearfix tgl caili clearfix">
+            常州市公园乐购生活购物有限公司<br />
+            <span>时价</span><div class="ml10">
+                2.38
+            </div>
+        </div>
+    </a>
+
+    <a href="http://www.zhong5.cn" class="item" data-in="1">
+        <div class="w90 clearfix tgl caili clearfix">
+            常州市公园乐购生活购物有限公司<br />
+            <span>时价</span><div class="ml10">
+                2.38
+            </div>
+        </div>
+    </a>
+
+
+    <a href="http://www.zhong5.cn" class="item" data-in="1">
+        <div class="w90 clearfix tgl caili clearfix">
+            常州市公园乐购生活购物有限公司<br />
+            <span>时价</span><div class="ml10">
+                2.38
+            </div>
+        </div>
+    </a>
+
+    <a href="http://www.zhong5.cn" class="item" data-in="1">
+        <div class="w90 clearfix tgl caili clearfix">
+            常州市公园乐购生活购物有限公司<br />
+            <span>时价</span><div class="ml10">
+                2.38
+            </div>
+        </div>
+    </a>
+
+
+    <a href="http://www.zhong5.cn" class="item" data-in="1">
+        <div class="w90 clearfix tgl caili clearfix">
+            常州市公园乐购生活购物有限公司<br />
+            <span>时价</span><div class="ml10">
+                2.38
+            </div>
+        </div>
+    </a>
+
+    <a href="http://www.zhong5.cn" class="item" data-in="1">
+        <div class="w90 clearfix tgl caili clearfix">
+            常州市公园乐购生活购物有限公司<br />
+            <span>时价</span><div class="ml10">
+                2.38
+            </div>
+        </div>
+    </a>
+
+
+    <a href="http://www.zhong5.cn" class="item" data-in="1">
+        <div class="w90 clearfix tgl caili clearfix">
+            常州市公园乐购生活购物有限公司<br />
+            <span>时价</span><div class="ml10">
+                2.38
+            </div>
+        </div>
+    </a>
+
+    <a href="http://www.zhong5.cn" class="item" data-in="1">
+        <div class="w90 clearfix tgl caili clearfix">
+            常州市公园乐购生活购物有限公司<br />
+            <span>时价</span><div class="ml10">
+                2.38
+            </div>
+        </div>
+    </a>
+
+
+    <a href="http://www.zhong5.cn" class="item" data-in="1">
+        <div class="w90 clearfix tgl caili clearfix">
+            常州市公园乐购生活购物有限公司<br />
+            <span>时价</span><div class="ml10">
+                2.38
+            </div>
+        </div>
+    </a>
+
+
+
+    <a href="http://www.zhong5.cn" class="item" data-in="1">
+        <div class="w90 clearfix tgl caili clearfix">
+            常州市公园乐购生活购物有限公司<br />
+            <span>时价</span><div class="ml10">
+                2.38
+            </div>
+        </div>
+    </a>
+
+
+
+    <a href="http://www.zhong5.cn" class="item" data-in="1">
+        <div class="w90 clearfix tgl caili clearfix">
+            常州市公园乐购生活购物有限公司<br />
+            <span>时价</span><div class="ml10">
+                2.38
+            </div>
+        </div>
+    </a>
+
+
+
+    <a href="http://www.zhong5.cn" class="item" data-in="1">
+        <div class="w90 clearfix tgl caili clearfix">
+            常州市公园乐购生活购物有限公司<br />
+            <span>时价</span><div class="ml10">
+                2.38
+            </div>
+        </div>
+    </a>
+
+    <a href="http://www.zhong5.cn" class="item" data-in="7">
+        <div class="w90 clearfix tgl caili clearfix">
+            777<br />
+            <span>时价</span><div class="ml10">
+                2.38
+            </div>
+        </div>
+    </a>
+
+    <a href="http://www.zhong5.cn" class="item" data-in="8">
+        <div class="w90 clearfix tgl caili clearfix">
+            888<br />
+            <span>时价</span><div class="ml10">
+                2.38
+            </div>
+        </div>
+    </a>
+
+
+
+
+</body>
+</html>
